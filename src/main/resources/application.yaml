@@ -1,0 +1,42 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: ${ENVIR:dev}
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.helloworld.epidemicmanagement.domain
+
+
+
+debug: true
+
+oss:
+  accessKey:
+    accesskey
+  secretKey:
+    ${OSS_SECRET}
+  ossName:
+    fsyj-bed-drawing
+  site:
+    'http://xxxx:site/'
+  area:
+    z2
+  path:
+    temp/
+  domain:
+    'http://xxxx/'
+  expire:
+    60
+
+logging:
+  file:
+    path: /app/logs
+  config: classpath:log/spring-logback.xml
+
+interval:
+  2

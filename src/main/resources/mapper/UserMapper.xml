@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.helloworld.epidemicmanagement.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.helloworld.epidemicmanagement.domain.User">
+        <!--@mbg.generated-->
+        <!--@Table `user`-->
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="gender" property="gender"/>
+        <result column="id_card" property="idCard"/>
+        <result column="address" property="address"/>
+        <result column="location" property="location"/>
+        <result column="phone" property="phone"/>
+        <result column="type" property="type"/>
+        <result column="status" property="status"/>
+        <result column="avatar" property="avatar"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        `name`,
+        gender,
+        id_card,
+        address,
+        `location`,
+        phone,
+        `type`,
+        `status`,
+        avatar,
+        `password`
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from `user`
+        where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete
+        from `user`
+        where id = #{id}
+    </delete>
+    <insert id="insert" parameterType="com.helloworld.epidemicmanagement.domain.User">
+        <!--@mbg.generated-->
+        insert into `user` (id, `name`, gender, id_card, address, `location`, phone,
+                            `type`, `status`, avatar, password)
+        values (#{id}, #{name}, #{gender}, #{idCard}, #{address}, #{location}, #{phone},
+                #{type}, #{status}, #{avatar}, #{password})
+    </insert>
+    <insert id="insertSelective" parameterType="com.helloworld.epidemicmanagement.domain.User">
+        <!--@mbg.generated-->
+        insert into `user`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="idCard != null">
+                id_card,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="location != null">
+                `location`,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="gender != null">
+                #{gender},
+            </if>
+            <if test="idCard != null">
+                #{idCard},
+            </if>
+            <if test="address != null">
+                #{address},
+            </if>
+            <if test="location != null">
+                #{location},
+            </if>
+            <if test="phone != null">
+                #{phone},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+            <if test="avatar != null">
+                #{avatar},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.helloworld.epidemicmanagement.domain.User">
+        <!--@mbg.generated-->
+        update `user`
+        <set>
+            <if test="name != null">
+                `name` = #{name},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="idCard != null">
+                id_card = #{idCard},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="location != null">
+                `location` = #{location},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="type != null">
+                `type` = #{type},
+            </if>
+            <if test="status != null">
+                `status` = #{status},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.helloworld.epidemicmanagement.domain.User">
+        <!--@mbg.generated-->
+        update `user`
+        set `name`     = #{name},
+            gender     = #{gender},
+            id_card    = #{idCard},
+            address    = #{address},
+            `location` = #{location},
+            phone      = #{phone},
+            `type`     = #{type},
+            `status`   = #{status},
+            avatar     = #{avatar}
+        where id = #{id}
+    </update>
+
+    <select id="selectByPhone" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `user`
+        where phone = #{phone}
+    </select>
+</mapper>

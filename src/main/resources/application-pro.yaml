@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    username: xxxx
+    password: xxxx
+    url: jdbc:mysql://xxxx:3307/test?useSSL=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    port: 9120
+    password: root
+    host: xxxx
+
+token:
+  # 令牌密钥
+  secret: abcdefghijklmnopqrstuvwxyz
+  # 令牌有效期（默认30分钟）
+  expireTime: 30
